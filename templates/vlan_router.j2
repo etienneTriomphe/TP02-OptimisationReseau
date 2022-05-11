@@ -1,0 +1,10 @@
+hostname {{hostname}}
+{% for interface in interfaces %}
+interface {{interface.name}}
+{% if '20' in interface.name or '10' in interface.name%}
+encapsulation dot1q {{interface.vlan_id}}
+ip address {{interface.ip}} {{interface.mask}}
+{%endif%}
+no shut
+exit
+{% endfor %}

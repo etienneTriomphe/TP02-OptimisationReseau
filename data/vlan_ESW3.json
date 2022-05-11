@@ -1,0 +1,30 @@
+{
+    "hostname":"ESW3",
+    "vlans":[
+    {
+        "id":"10",
+        "name":"teacher"
+    },
+    {
+        "id":"20",
+        "name":"student"
+    }
+    ],
+    "interfaces":[
+        {
+            "name":"fa1/0",
+            "mode":"trunk"
+        }, 
+        {
+            "name":"fa1/1",
+            "vlan_id":"10",
+            "mode":"access"
+        },       
+        {
+            "name":"fa1/2",
+            "vlan_id":"20",
+            "mode":"access"
+        }
+    ]
+
+}

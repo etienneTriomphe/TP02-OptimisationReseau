@@ -1,0 +1,6 @@
+router ospf 1
+router-id {{router_id}}
+{% for network in ospf_networks %}
+network {{network.network_ip}} {{network.mask}} area 0
+{% endfor %}
+exit

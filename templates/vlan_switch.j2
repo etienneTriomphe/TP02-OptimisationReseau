@@ -1,0 +1,18 @@
+hostname {{hostname}}
+{% for vlan in vlans%}
+vlan {{vlan.id}}
+exit
+{% endfor %}
+{% for interface in interfaces %}
+interface {{interface.name}}
+{% if interface.mode == "access" %}
+switchport mode {{interface.mode}}
+switchport {{interface.mode}} vlan {{interface.vlan_id}}    
+{% elif interface.mode == "trunk" %}
+switchport {{interface.mode}} encapsulation dot1q
+switchport mode {{interface.mode}}
+switchport {{interface.mode}} allowed vlan all
+{%endif%}
+no shut
+exit
+{% endfor %}
